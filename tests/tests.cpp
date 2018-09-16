@@ -41,6 +41,7 @@ TEST_FUNCTION_BEGIN(TestParseFromString)
     TEST_ASSERT(NUtil::ParseFromString<float>("0.01") == 0.01f);
     TEST_ASSERT(NUtil::ParseFromString<float>("1e9") == 1e9f);
     TEST_ASSERT_THROW(NUtil::ParseFromString<float>("zero point zero one"), NUtil::TParsingException);
+    TEST_ASSERT_THROW(NUtil::ParseFromString<float>("0.01 0.01"), NUtil::TParsingException);
 
 TEST_FUNCTION_END()
 
