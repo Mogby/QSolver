@@ -128,9 +128,9 @@ int main(int argc, char* argv[]) {
     NQSolver::TRoots<long double> roots;
     try {
         roots = NQSolver::SolveQuadraticEquation<TReal>(
-                runArguments.Coefficients[2],
-                runArguments.Coefficients[1],
                 runArguments.Coefficients[0],
+                runArguments.Coefficients[1],
+                runArguments.Coefficients[2],
                 runArguments.Precision
         );
     } catch(std::exception& exception) {
