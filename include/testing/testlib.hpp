@@ -8,7 +8,7 @@
 /// \brief Opens definition of test function
 ///
 /// Defines a function `bool functionName()`.
-/// You can use TEST_ASSERT(expression) and 
+/// You can use TEST_ASSERT(expression) and
 /// TEST_ASSERT_THROW(expression, exception_type)
 /// macros in its body.
 ///
@@ -16,7 +16,7 @@
 /// assertions failed.
 /// Otherwise it returns `true`.
 ///
-/// You shouldn't use variables named `__testSuccess__` or 
+/// You shouldn't use variables named `__testSuccess__` or
 /// `__testFunctionName__` inside the test function body
 /// as they are reserved for internal use.
 ///
@@ -61,7 +61,7 @@
     if (!(expression)) { \
         TEST_PRINT("Assertion failed: " #expression); \
         __testSuccess__ = false; \
-    } 
+    }
 
 /// \brief Tests if expression throws `exception_type`
 ///
