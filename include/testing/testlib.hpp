@@ -2,8 +2,8 @@
 
 #define TEST_LIB_HPP
 
-#define CONCAT_HELPER(X,Y) X##Y
-#define CONCAT(X,Y) CONCAT_HELPER(X,Y)
+#define CONCATENATE_HELPER(X,Y) X##Y
+#define CONCATENATE(X,Y) CONCATENATE_HELPER(X,Y)
 
 /// \addtogroup Testing
 /// @{
@@ -75,13 +75,13 @@
 /// \param expression expression that should throw
 /// \param exception_type expected type of thrown exception
 #define TEST_ASSERT_THROW(expression, exception_type) \
-    bool CONCAT(threw, __LINE__) = false; \
+    bool CONCATENATE(threw, __LINE__) = false; \
     try { \
         expression; \
     } catch(const exception_type&) { \
-        CONCAT(threw, __LINE__) = true; \
+        CONCATENATE(threw, __LINE__) = true; \
     } \
-    if (!CONCAT(threw, __LINE__)) { \
+    if (!CONCATENATE(threw, __LINE__)) { \
         TEST_PRINT("Throw assertion failed: " #expression); \
         __testSuccess__ = false; \
     }
