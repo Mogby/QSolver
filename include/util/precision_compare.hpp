@@ -8,9 +8,9 @@ namespace NUtil {
 
 /// \brief Reperesents result of comparison
 enum ECompareResult {
-  CR_LESS = -1, ///< \f$leftValue < rightValue\f$
-  CR_EQUAL = 0, ///< \f$leftValue = rightValue\f$
-  CR_GREATER = 1 ///< \f$leftValue > rightValue\f$
+    CR_LESS = -1, ///< \f$leftValue < rightValue\f$
+    CR_EQUAL = 0, ///< \f$leftValue = rightValue\f$
+    CR_GREATER = 1 ///< \f$leftValue > rightValue\f$
 };
 
 /// \brief Compares real numbers with given precision
@@ -27,14 +27,14 @@ enum ECompareResult {
 ///     comparison result
 template <typename TReal>
 ECompareResult CompareWithPrecision(const TReal leftValue, const TReal rightValue, const TReal precision){
-  const auto difference = leftValue - rightValue;
-  if (difference < -precision) {
-    return CR_LESS;
-  } else if (difference > precision) {
-    return CR_GREATER;
-  } else {
-    return CR_EQUAL;
-  }
+    const auto difference = leftValue - rightValue;
+    if (difference < -precision) {
+        return CR_LESS;
+    } else if (difference > precision) {
+        return CR_GREATER;
+    } else {
+        return CR_EQUAL;
+    }
 }
 
 /// @}

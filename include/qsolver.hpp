@@ -33,14 +33,14 @@ using TRoots = std::vector<TReal>;
 /// \see NUtil::CompareWithPrecision
 template <typename TReal>
 NQSolver::TRoots<TReal> SolveLinearEquation(const TReal a, const TReal b,
-                           const TReal comparePrecision = 0) {
-  if (NUtil::CompareWithPrecision<TReal>(a, 0, comparePrecision) != NUtil::CR_EQUAL) {
-    return {-b / a};
-  } else if (NUtil::CompareWithPrecision<TReal>(b, 0, comparePrecision) != NUtil::CR_EQUAL){
-    return {};
-  } else {
-    throw NQSolver::TInfinitelyManyRootsException{};
-  }
+                                            const TReal comparePrecision = 0) {
+    if (NUtil::CompareWithPrecision<TReal>(a, 0, comparePrecision) != NUtil::CR_EQUAL) {
+        return {-b / a};
+    } else if (NUtil::CompareWithPrecision<TReal>(b, 0, comparePrecision) != NUtil::CR_EQUAL){
+        return {};
+    } else {
+        throw NQSolver::TInfinitelyManyRootsException{};
+    }
 }
 
 /// \brief Solves quadratic equation \f$ax^2 + bx + c = 0\f$
@@ -59,24 +59,24 @@ NQSolver::TRoots<TReal> SolveLinearEquation(const TReal a, const TReal b,
 template <typename TReal>
 TRoots<TReal> SolveQuadraticEquation(const TReal a, const TReal b, const TReal c,
                                      const TReal comparePrecision = 0) {
-  if (NUtil::CompareWithPrecision<TReal>(a, 0, comparePrecision) == NUtil::CR_EQUAL) {
-    return SolveLinearEquation<TReal>(b, c, comparePrecision);
-  }
+    if (NUtil::CompareWithPrecision<TReal>(a, 0, comparePrecision) == NUtil::CR_EQUAL) {
+        return SolveLinearEquation<TReal>(b, c, comparePrecision);
+    }
 
-  const TReal discriminant = b * b - 4 * a * c;
-  switch (NUtil::CompareWithPrecision<TReal>(discriminant, 0, comparePrecision)) {
-    case NUtil::CR_LESS:
-      return {};
+    const TReal discriminant = b * b - 4 * a * c;
+    switch (NUtil::CompareWithPrecision<TReal>(discriminant, 0, comparePrecision)) {
+        case NUtil::CR_LESS:
+            return {};
 
-    case NUtil::CR_EQUAL:
-      return {-b / (2 * a)};
+        case NUtil::CR_EQUAL:
+            return {-b / (2 * a)};
 
-    case NUtil::CR_GREATER:
-      return {
-        (-b - std::sqrt(discriminant)) / (2 * a),
-        (-b + std::sqrt(discriminant)) / (2 * a)
-      };
-  }
+        case NUtil::CR_GREATER:
+            return {
+                (-b - std::sqrt(discriminant)) / (2 * a),
+                (-b + std::sqrt(discriminant)) / (2 * a)
+            };
+    }
 }
 
 /// @}
