@@ -15,6 +15,8 @@ using std::cout;
 using std::cerr;
 using std::endl;
 
+/* Reinvent the wheel, you know, read about getopt, much easier I mean it */
+   
 struct TArguments {
     std::vector<TReal> Coefficients;
     TReal Precision{0};
